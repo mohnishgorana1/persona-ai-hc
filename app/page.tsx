@@ -4,7 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import {
   Send, User, Bot, BrainCircuit, Menu, X,
   Terminal, Code2, Cpu, ChevronLeft, ChevronRight, ArrowRight, LogOut,
-  BotIcon
+  BotIcon,
+  ShieldCheck,
+  Fingerprint,
+  Database
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -184,25 +187,39 @@ export default function ChatPage() {
             <div className="p-4 bg-neutral-950/50 rounded-2xl border border-neutral-800/50">
               <h3 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">About Agent</h3>
               <p className="text-sm text-neutral-300 leading-relaxed">
-                Emulating Hitesh Choudhary&apos;s exact pedagogical style. Built specifically for the <strong className="text-neutral-100">GenAI with JS 2026</strong> cohort assignment.
+                Developed for the <strong className="text-neutral-100">GenAI with JS 2026</strong> cohort, this agent acts as your personal Hitesh Sir. Expect deep dives into architecture, practical debugging, and absolutely zero spoon-feeding.
               </p>
             </div>
 
-            <div className="p-4 bg-neutral-950/50 rounded-2xl border border-neutral-800/50">
-              <h3 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">Capabilities</h3>
-              <ul className="text-sm text-neutral-300 space-y-3">
-                <li className="flex items-center gap-3"><BrainCircuit size={16} className="text-orange-500" /> <span>Chain of Thought</span></li>
-                <li className="flex items-center gap-3"><Cpu size={16} className="text-blue-500" /> <span>Tavily Real-time Data</span></li>
-                <li className="flex items-center gap-3"><Code2 size={16} className="text-emerald-500" /> <span>Markdown & Code</span></li>
+            <div className="p-4 bg-neutral-950/50 rounded-2xl border border-neutral-800/50 shadow-lg">
+              <h3 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4">Core Capabilities</h3>
+              <ul className="text-sm text-neutral-300 space-y-3.5">
+                <li className="flex items-center gap-3 group cursor-default">
+                  <BrainCircuit size={16} className="text-orange-500 group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-white transition-colors">Chain of Thought Reasoning</span>
+                </li>
+                <li className="flex items-center gap-3 group cursor-default">
+                  <Cpu size={16} className="text-blue-500 group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-white transition-colors">Tavily Real-time Search</span>
+                </li>
+                <li className="flex items-center gap-3 group cursor-default">
+                  <Code2 size={16} className="text-emerald-500 group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-white transition-colors">VS-Code Style Formatting</span>
+                </li>
+                <li className="flex items-center gap-3 group cursor-default">
+                  <Database size={16} className="text-amber-500 group-hover:scale-110 transition-transform" />
+                  <span className="group-hover:text-white transition-colors">Contextual Memory</span>
+                </li>
               </ul>
             </div>
           </>
         ) : (
           // Collapsed Icons
           <div className="flex flex-col items-center space-y-6 pt-4">
-            <BrainCircuit size={20} className="text-orange-500" title="Chain of Thought" />
-            <Cpu size={20} className="text-blue-500" title="Real-time Data" />
-            <Code2 size={20} className="text-emerald-500" title="Markdown & Code" />
+            <BrainCircuit size={20} className="text-orange-500" title="Chain of Thought Reasoning" />
+            <Cpu size={20} className="text-blue-500" title="Tavily Real-time Search" />
+            <Code2 size={20} className="text-emerald-500" title="VS-Code Style Formatting" />
+            <Database size={20} className="text-amber-500" title="Contextual Memory" />
           </div>
         )}
       </div>
@@ -231,8 +248,8 @@ export default function ChatPage() {
                   onClick={handleSignOut}
                   title="Sign Out"
                   className="group"
-                  >
-                    
+                >
+
                   <LogOut size={20} className="cursor-pointer hover:font-bold text-neutral-500 hover:text-neutral-200  transition-colors shrink-0" />
 
                 </button>
