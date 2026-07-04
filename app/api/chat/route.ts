@@ -106,7 +106,7 @@ async function performWebSearch(query: string) {
       body: JSON.stringify({
         api_key: process.env.TAVILY_API_KEY,
         query: query,
-        search_depth: "basic",
+        search_depth: "advanced",
         include_answer: false,
         max_results: 3, 
       }),
